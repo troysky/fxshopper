@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="fxshopperApp">
+<head>
+	<title>FXShopper</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+	<!-- Custom theme -->
+	<link href="css/starter-template.css" rel="stylesheet">
+</head>
+<body ng-controller="MainCtrl">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">{{title}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Rates</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      	<div class="starter-template">
+	        <h1>Find the best exchange rate</h1>
+	        <form class="form-inline" role="form">
+	        	<div class="form-group">
+					<input type="text" class="form-control" id="amount" placeholder="Enter amount" ng-model="amount"/>
+				</div>			
+				<div class="form-group">
+					<input type="text" class="form-control currency" id="fromCcy" placeholder="From" ng-model="fromCcy"/>
+				</div>
+				<div class="form-group">
+					<label>&gt;</label>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control currency" id="toCcy" placeholder="To" ng-model="toCcy"/>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default" ng-click="getRate()">Submit</button>
+				</div>
+			</form>
+      	</div>
+      	<div id="result" ng-show="showResult">
+      		<table class="table">
+      			<tr>
+				    <th>Provider</th>
+				    <th>Rate</th>
+				    <th>Amount</th>
+				</tr>
+      			<tr ng-repeat="rate in rates">
+      				<td>{{rate.provider}}</td>
+      				<td>{{rate.rate}}</td>
+      				<td>{{rate.counterAmount}} {{toCcy}}</td>
+      			</tr>
+			</table>
+      	</div>
+      	<div id="error" ng-show="showError">
+      		<span>Error getting rates!</span>
+      	</div>
+    </div><!-- /.container -->
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/jquery-1.10.2.min.js"></script>	
+	<script src="js/bootstrap.min.js"></script>	
+	<script src="js/angular.min.js"></script>
+	<script src="js/controllers.js"></script>
+</body>
+</html>
