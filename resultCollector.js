@@ -2,6 +2,7 @@ var rateProviders = [
 		require('./rate_providers/ozforex'),
 		require('./rate_providers/westpac'),
 		require('./rate_providers/anz')
+		//require('./rate_providers/currencyonline')
 	];
 
 exports.collect = function(fromCcy, toCcy, amount, callback){

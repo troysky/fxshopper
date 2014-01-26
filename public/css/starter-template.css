@@ -8,11 +8,15 @@ body {
 }
 
 .currency{
-	width: 80px;
+	width: 60px;
 }
 
 .amount{
-	width: 160px;
+	width: 110px;
+}
+
+.submit{
+	width: 80;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

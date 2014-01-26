@@ -11,6 +11,14 @@ exports.get = function(config, callback){
     );
 }
 
+exports.post = function(config, callback){
+    console.log("get " + JSON.stringify(config));
+    request.post(
+        config, 
+        scrape.bind({"callback": callback})
+    );
+}
+
 exports.getRaw = function(config, callback){
     console.log("get " + JSON.stringify(config));
     request(
@@ -19,11 +27,11 @@ exports.getRaw = function(config, callback){
     );
 }
 
-exports.post = function(config, callback){
-	console.log("post " + JSON.stringify(config));
-	request.post(
+exports.postRaw = function(config, callback){
+    console.log("get " + JSON.stringify(config));
+    request.post(
         config, 
-        scrape.bind({"callback": callback})
+        fetch.bind({"callback": callback})
     );
 }
 
